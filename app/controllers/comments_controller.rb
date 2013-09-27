@@ -11,8 +11,21 @@ class CommentsController < ApplicationController
   end
 
   def edit
+  	@comment = Comment.find(params[:id])
+  end
+
+  def update
+  	@comment = Comment.find(params[:id])
+  	@post = @comment.post
+  	@content = params[:comment][:content]
+  	@comment.update_attributes!(content: @content)
+  	redirect_to post_path(@post)
   end
 
   def destroy
+  	@comment = Comment.find(params[:id])
+  	@post = @comment.post
+  	@comment.destroy
+  	redirect_to post_path(@post)
   end
 end

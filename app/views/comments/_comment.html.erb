@@ -2,4 +2,6 @@
 	<p><%= comment.content %></p>
 	<p><%= comment.author.name %></p>
 	<p><%= time_ago_in_words comment.updated_at %> ago</p>
+	<%= link_to "delete", comment_path(comment), method: :delete%>
+	<%= link_to "edit", edit_comment_path(comment) %>
 </li>
