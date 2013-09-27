@@ -1,0 +1,17 @@
+<h3><%= @post.title %></h3>
+<p><%= @post.author.name %></p>
+<p>updated at <%= time_ago_in_words @post.updated_at %> ago</p>
+<p><%= @post.content %></p>
+
+<% if @comments.empty? %>
+	<p>This comment has not yet comments</p>
+<% else%>
+	<%= render @comments %>
+<% end %>
+
+<%= simple_form_for(@post.comments.new) do |f| %>
+	<%= f.input :post, as: :hidden, input_html: { value: @post._id } %>
+	<%= f.input :author, as: :hidden, input_html: {value: current_user._id} %>
+  <%= f.input :content, as: :text, placeholder: "Comment...",required: true,label: false %>
+  <%= f.submit "Submit" %>
+<% end %>

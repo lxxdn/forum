@@ -1,4 +1,7 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if @posts.empty? %>
+<p>Sorry,there is no posts</p>
+<% else %>
+<%= render @posts %>
+<% end %>
 
 <%= link_to "new post", new_post_path %>

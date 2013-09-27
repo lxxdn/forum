@@ -3,8 +3,11 @@ class Comment
   include Mongoid::Timestamps
 
   belongs_to :author, class_name: "User", inverse_of: :comments
+  belongs_to :post, inverse_of: :comments
+  
   field :content, type: String, default: ""
-  embedded_in :post, inverse_of: :comments
+  
 
   validates_presence_of :content
+  validates_presence_of :author_id
 end

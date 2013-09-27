@@ -13,6 +13,19 @@ class PostsController < ApplicationController
   	redirect_to root_path
   end
 
+  def show
+  	@post = Post.find(params[:id])
+  	if @post.nil?
+  		flash[:error] = "The post doesn't exist any more!"
+  		redirect_to root_path
+  	else
+  		# if the post exists, load its comments
+  		@comments =  @post.comments
+  	end
+
+
+  end
+
   def destroy
   end
 
