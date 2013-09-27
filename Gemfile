@@ -32,7 +32,8 @@ gem 'devise', '3.0.0'
 gem "mongoid", github: 'mongoid/mongoid'
 
 # Bootstrap
-gem 'anjlab-bootstrap-rails', '2.0.3.2', require: 'bootstrap-rails'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
 
 # 三方平台 OAuth 验证登陆
 gem "omniauth", "~> 1.0.1"

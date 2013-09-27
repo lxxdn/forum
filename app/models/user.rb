@@ -27,6 +27,9 @@ class User
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
 
+  has_many :posts, :dependent => :destroy
+  has_many :comments, :dependent => :destroy 
+
   ACCESSABLE_ATTRS=[:name, :email, :password, :password_confirmation]
 
   ## Confirmable

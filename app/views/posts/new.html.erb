@@ -1,0 +1,5 @@
+<%= simple_form_for @post do |f| %>
+  <%= f.input :title, placeholder: 'Title' %>
+  <%= f.input :content,as: :text, placeholder: 'Content...' %>
+  <%= f.button :submit %>
+<% end %>
