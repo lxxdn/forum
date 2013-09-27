@@ -1,7 +1,11 @@
 <h3><%= @post.title %></h3>
 <p><%= @post.author.name %></p>
+<%= link_to "delete", post_path(@post), method: :delete%>
+<%= link_to "edit", edit_post_path(@post) %>
 <p>updated at <%= time_ago_in_words @post.updated_at %> ago</p>
 <p><%= @post.content %></p>
+
+
 
 <% if @comments.empty? %>
 	<p>This comment has not yet comments</p>

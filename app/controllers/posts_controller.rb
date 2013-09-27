@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   	@content = params[:post][:content]
   	@post = current_user.posts.build(title: @title, content: @content)
   	@post.save
-  	redirect_to root_path
+  	redirect_to post_path(@post)
   end
 
   def show
@@ -27,9 +27,22 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to root_path
   end
 
   def edit
+    @post = Post.find(params[:id])
+    render 'new'
+  end
+
+  def update
+    @title = params[:post][:title]
+    @content = params[:post][:content]
+    @post = Post.find(params[:id])
+    @post.update_attributes!(title: @title, content: @content)
+    redirect_to post_path(@post)
   end
 
   private
