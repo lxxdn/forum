@@ -12,6 +12,8 @@ class User
 
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
+
+  field :image_url, :type => String, :default => 'default_icon.png'
   
   ## Recoverable
   field :reset_password_token,   :type => String

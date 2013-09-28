@@ -1,7 +1,14 @@
-<li>
-	<p><%= comment.content %></p>
-	<p><%= comment.author.name %></p>
-	<p><%= time_ago_in_words comment.updated_at %> ago</p>
-	<%= link_to "delete", comment_path(comment), method: :delete%>
-	<%= link_to "edit", edit_comment_path(comment) %>
+
+
+<li class="one_piece_comment">
+	<%= image_tag comment.author.image_url, class: "icon_small" %>
+	<span class="little_gray">
+		<%= link_to comment.author.name, "#" %> <%= time_ago_in_words comment.updated_at %> ago
+	</span>
+	<div class="edit_remove">
+		<%= link_to "edit", edit_comment_path(comment) %>
+		<%= link_to "delete", comment_path(comment), method: :delete%>
+	</div>
+	
+	<p class="comment_content"><%= comment.content %></p>
 </li>

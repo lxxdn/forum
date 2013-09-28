@@ -1,3 +1,33 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.little_gray{
+	font-size: 10pt;
+	color: gray;
+	margin-top:0px;
+
+}
+
+
+p.index_post_title{
+		font-size: 22px;
+		margin-bottom: 3px;
+		padding-top: 0px;
+
+}
+
+p.entire_post_title{
+	font-size: 35px;
+	margin-bottom: 10px;
+}
+
+p.post_content{
+	font-size: 13pt;
+}
+
+li.one_piece_post_index{
+	border-bottom: solid 1px #CCCCCC;
+	margin-bottom: 5px;
+	
+}

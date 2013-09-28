@@ -1,21 +1,12 @@
-<h3><%= @post.title %></h3>
-<p><%= @post.author.name %></p>
-<%= link_to "delete", post_path(@post), method: :delete%>
-<%= link_to "edit", edit_post_path(@post) %>
-<p>updated at <%= time_ago_in_words @post.updated_at %> ago</p>
-<p><%= @post.content %></p>
+<%= image_tag @post.author.image_url, class: "icon_big" %>
+<p class="entire_post_title"><%= @post.title %></p>
+<p class="little_gray">
+	<%= link_to "type", "#" %> <%= @post.author.name %> updated at <%= time_ago_in_words @post.updated_at %> ago 
+	<%= link_to "delete", post_path(@post), method: :delete%>
+	<%= link_to "edit", edit_post_path(@post) %>
+</p>
+
+<p class="post_content"><%= @post.content %></p>
 
 
-
-<% if @comments.empty? %>
-	<p>This comment has not yet comments</p>
-<% else%>
-	<%= render @comments %>
-<% end %>
-
-<%= simple_form_for(@post.comments.new) do |f| %>
-	<%= f.input :post, as: :hidden, input_html: { value: @post._id } %>
-	<%= f.input :author, as: :hidden, input_html: {value: current_user._id} %>
-  <%= f.input :content, as: :text, placeholder: "Comment...",required: true,label: false %>
-  <%= f.submit "Submit" %>
-<% end %>
+<%= render "comment_module" %>

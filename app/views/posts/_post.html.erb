@@ -1,6 +1,10 @@
-<li>
-	<a href="<%= post_path(post) %>"><h2><%= post.title %></h2></a>
-	<p><%= post.author.name %></p> 
-	<p>created at <%= time_ago_in_words post.updated_at %> ago</p>
+<li class="one_piece_post_index">
+	<%= image_tag post.author.image_url, class: "icon_small" %>
+
+	<p class="index_post_title"><a href="<%= post_path(post) %>"><%= post.title %></a></p>
+
+	<p class="little_gray">
+		<%= link_to "type", "#" %>  <%= link_to post.author.name, "#" %> updated at <%= time_ago_in_words post.updated_at %> ago
+	</p>
 </li>
 
