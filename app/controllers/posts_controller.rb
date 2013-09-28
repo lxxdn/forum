@@ -45,6 +45,14 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  def edit_profile
+    @user = current_user
+  end
+
+  def update_profile
+    
+  end
+
   private
 
   def require_login

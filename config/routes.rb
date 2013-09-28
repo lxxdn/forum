@@ -7,6 +7,8 @@ Forum::Application.routes.draw do
   resources :posts
   resources :comments
 
+  get 'settings/profile' => 'posts#edit_profile'
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

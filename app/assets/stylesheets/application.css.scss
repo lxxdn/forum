@@ -15,20 +15,7 @@
 
 @import "twitter/bootstrap";
 
-.icon_small{
-	width: 50px;
-	height: 50px;
-	float: left;
-	margin-right: 10px;
 
-}
-
-.icon_big{
-	width: 72px;
-	height: 72px;
-	float: right;
-	margin-right: 10px;
-}
 
 li{
 	list-style:none;
@@ -41,4 +28,8 @@ li{
 .container{
 	padding-left: 7%;
 	padding-right: 7%;
+}
+
+.left_margin_10px{
+	margin-left: 10px;
 }
