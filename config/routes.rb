@@ -1,13 +1,14 @@
 Forum::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users, :controllers=>{:omniauth_callbacks=>"users/omniauth_callbacks"}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root :to => "home#index"
   resources :posts
   resources :comments
+  resources :profiles
 
-  get 'settings/profile' => 'posts#edit_profile'
+  # get "http://localhost:3000/users/auth/google_oauth2/callback", to: "users/omniauth_callbacks#create"
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

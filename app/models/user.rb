@@ -3,10 +3,18 @@ class User
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:google_oauth2]
+
+  mount_uploader :image_url, IconPhotoUploader
 
   ## Database authenticatable
+  ## twitter auth info
+  field :provider, :type => String
+  field :uid, :type => String
+
   ##use name
   field :name, :type => String
 
@@ -32,7 +40,7 @@ class User
   has_many :posts, :dependent => :destroy
   has_many :comments, :dependent => :destroy 
 
-  ACCESSABLE_ATTRS=[:name, :email, :password, :password_confirmation]
+  ACCESSABLE_ATTRS=[:name, :email, :password, :password_confirmation, :provider, :uid]
 
   ## Confirmable
   # field :confirmation_token,   :type => String
@@ -47,4 +55,17 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+
+  def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
+    data = access_token.info
+    user = User.where(:email => data["email"]).first
+
+    unless user
+        user = User.create(name: data["name"],
+             email: data["email"],
+             password: Devise.friendly_token[0,20]
+            )
+    end
+    user
+  end
 end

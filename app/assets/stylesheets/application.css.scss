@@ -15,8 +15,6 @@
 
 @import "twitter/bootstrap";
 
-
-
 li{
 	list-style:none;
 }
@@ -30,6 +28,34 @@ li{
 	padding-right: 7%;
 }
 
-.left_margin_10px{
+.margin_10px{
 	margin-left: 10px;
+}
+
+body {
+ background-image: url("background.gif");
+ background-repeat: repeat;
+}
+
+.white-background{
+	background: white;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-bottom: 20px;
+	padding-top: 12px;
+	border-radius: 7px;
+	margin-top: 10px;
+	margin-bottom: 25px;
+}
+
+h2{
+	margin-top: 0px;
+}
+
+.bold{
+	font-weight: 700;
+}
+
+.offset2{
+	margin-left: 25%;
 }

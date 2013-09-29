@@ -31,13 +31,16 @@ gem 'devise', '3.0.0'
 # MongoDB
 gem "mongoid", github: 'mongoid/mongoid'
 
+# Picture uploader
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+
 # Bootstrap
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
-
-# 三方平台 OAuth 验证登陆
-gem "omniauth", "~> 1.0.1"
-gem "omniauth-github", "~> 1.1.0"
+# OAuth
+gem "omniauth"
+gem 'omniauth-google-oauth2'
 
 #form
 gem 'simple_form'

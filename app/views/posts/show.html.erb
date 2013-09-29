@@ -1,3 +1,4 @@
+<div class="white-background">
 <%= image_tag @post.author.image_url, class: "icon_big" %>
 <p class="entire_post_title"><%= @post.title %></p>
 <p class="little_gray">
@@ -8,5 +9,12 @@
 
 <p class="post_content"><%= @post.content %></p>
 
-
+	<div class="comments_list">
+		<% if @comments.empty? %>
+			<p>This comment has not yet comments</p>
+		<% else%>
+				<%= render @comments %>
+		<% end %>
+	</div>
+</div>
 <%= render "comment_module" %>

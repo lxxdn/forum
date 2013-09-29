@@ -1,5 +1,15 @@
-<%= simple_form_for @post do |f| %>
-  <%= f.input :title, placeholder: 'Title' %>
-  <%= f.input :content,as: :text, placeholder: 'Content...' %>
-  <%= f.button :submit %>
-<% end %>
+<div class="white-background">
+	
+	<p class="form-title bold">New post</p>
+	<div class="offset2">
+	<%= simple_form_for @post do |f| %>
+		<div class="bold">Title:</div> 
+	  <%= f.input :title, input_html:{class: "input-box"}, label: false, placeholder: 'Title' %>
+	  <div class="bold">Content:</div> 
+	  <%= f.input :content,as: :text, input_html:{class: "input-box"}, label: false, placeholder: 'Content...' %>
+	  <div class="form-actions">
+    	<%= f.button :submit, "Sign in" , class: "btn btn-primary "%>
+  	</div>
+	<% end %>
+</div>
+</div>

@@ -1,10 +1,3 @@
-<div class="comments_list">
-	<% if @comments.empty? %>
-		<p>This comment has not yet comments</p>
-	<% else%>
-			<%= render @comments %>
-	<% end %>
+<div class="white-background">
+	<%= render "comments/new_comment" %>
 </div>
-
-<%= render "comments/new_comment" %>
-
