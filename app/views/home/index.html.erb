@@ -1,4 +1,16 @@
 <div class="white-background">
+
+
+
+<ul class="nav nav-pills">
+	<% Catalog.all.each do |catalog|%>
+		<li><a href="#">
+			<%= catalog.name %>
+		</a></li>
+	<% end %>
+</ul>
+
+
 <% if @posts.empty? %>
 	<p>Sorry,there is no posts</p>
 <% else %>

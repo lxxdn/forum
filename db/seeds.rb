@@ -6,7 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+puts 'SETTING UP CATALOG'
+tech = Catalog.create! name: 'Technology'
+apple = Catalog.create! name: 'Apple'
+idea = Catalog.create! name: 'Idea'
+
+puts 'SETTING UP topics'
+tech.topics.create! name: 'Ruby'
+tech.topics.create! name: 'Python'
+tech.topics.create! name: 'Javascript'
+
+apple.topics.create! name: 'OSX'
+apple.topics.create! name: 'MBP'
+apple.topics.create! name: 'iPhone'
+
+idea.topics.create! name: 'Design'
+idea.topics.create! name: 'Share'
+idea.topics.create! name: 'Jobs'
 
 puts 'SETTING UP DEFAUT USER'
-user = User.create! :name => 'lxxdn', :email => 'julien.luxiao@gmail.com', :password => '12345678', :password_confirmation => '12345678'
+User.create! :name => 'lxxdn', :email => 'julien.luxiao@gmail.com', :password => '12345678', :password_confirmation => '12345678'
 

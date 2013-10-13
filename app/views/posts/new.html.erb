@@ -3,8 +3,24 @@
 	<p class="form-title bold">New post</p>
 	<div class="offset2">
 	<%= simple_form_for @post do |f| %>
+		<div class="bold">Topic:</div> 
+		
+		<% parameters = get_url_params(request.original_url) %>
+		<select class="form-control input-box" id="topic_id_selector">
+			<% Topic.each_with_index do |topic, index|  %>
+				<% if parameters["topic"] == index.to_s %>
+					<option value="<%= index %>" selected><%= topic.name %></option>
+				<% else %>
+					<option value="<%= index %>"><%= topic.name %></option>
+				<% end %>
+
+			<% end %>
+		</select>
+
 		<div class="bold">Title:</div> 
-	  <%= f.input :title, input_html:{class: "input-box"}, label: false, placeholder: 'Title' %>
+
+ 		<%= f.input :title, input_html:{class: "input-box form-control"}, label: false, placeholder: 'Title' %>
+	  
 	  <div class="bold">Content:</div> 
 	  <%= f.input :content,as: :text, input_html:{class: "input-box"}, label: false, placeholder: 'Content...' %>
 	  <div class="form-actions">
