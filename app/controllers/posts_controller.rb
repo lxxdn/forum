@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   def create
   	@title = params[:post][:title]
   	@content = params[:post][:content]
-  	@post = current_user.posts.build(title: @title, content: @content)
+    @topic = Topic.all[params[:post][:topic_id].to_i]
+  	@post = current_user.posts.build(title: @title, content: @content, topic: @topic)
   	@post.save
   	redirect_to post_path(@post)
   end
@@ -22,8 +23,6 @@ class PostsController < ApplicationController
   		# if the post exists, load its comments
   		@comments =  @post.comments
   	end
-
-
   end
 
   def destroy
@@ -34,18 +33,18 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @topic_id = Topic.all.find_index(@post.topic)
     render 'new'
   end
 
   def update
     @title = params[:post][:title]
     @content = params[:post][:content]
+    @topic = Topic.all[params[:post][:topic_id].to_i]
     @post = Post.find(params[:id])
-    @post.update_attributes!(title: @title, content: @content)
+    @post.update_attributes!(title: @title, content: @content, topic: @topic)
     redirect_to post_path(@post)
   end
-
-  
 
   private
 

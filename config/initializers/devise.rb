@@ -14,10 +14,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/mongoid'
-  require "omniauth-google-oauth2"
   
-  config.omniauth :google_oauth2, "616181590622-qm4slp8drp2ktj6le7epl2la4ief4qnb.apps.googleusercontent.com", "OmpQ4JSi2xI5BEnE_M-4h-WJ", { access_type: "offline", approval_prompt: "" }
-
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -223,6 +220,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  require "omniauth-google-oauth2"
+  config.omniauth :google_oauth2, "256887873078.apps.googleusercontent.com", "Ra4vEWcp8Cw-xOpaL5sTcByJ", { access_type: "offline", approval_prompt: "" }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

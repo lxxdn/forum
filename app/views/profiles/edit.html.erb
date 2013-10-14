@@ -4,10 +4,10 @@
 <%= form_for :profile, method: :put, url: profile_path(current_user),:html => {:multipart => true} do |f| %>
 	<div class="label_tag">
 		Photo
-		<%= image_tag @user.image_url, class: "icon_edit left_margin_10px" %>
+		<%= image_tag @user.image, class: "icon_edit left_margin_10px" %>
 	</div> 
 	
-	<%= f.file_field :image_url %><br/><br/><br/><br/>
+	<%= f.file_field :image %><br/><br/><br/><br/>
 
 	<div class="profile_element">
 		<div class="label_tag">

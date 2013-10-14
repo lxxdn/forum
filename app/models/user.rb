@@ -8,7 +8,7 @@ class User
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  mount_uploader :image_url, IconPhotoUploader
+  mount_uploader :image, IconPhotoUploader
 
   ## Database authenticatable
   ## twitter auth info
@@ -21,8 +21,8 @@ class User
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
 
-  field :image_url, :type => String, :default => 'default_icon.png'
-  
+  field :image, :type => String
+
   ## Recoverable
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time
@@ -61,10 +61,15 @@ class User
     user = User.where(:email => data["email"]).first
 
     unless user
-        user = User.create(name: data["name"],
-             email: data["email"],
-             password: Devise.friendly_token[0,20]
-            )
+    user = User.create(name: data["name"],
+         email: data["email"],
+         remote_image_url: data["image"],
+         password: Devise.friendly_token[0,20]
+        )
+    data.each do |key,value| 
+      puts "#{key} => #{value}"
+    end
+
     end
     user
   end

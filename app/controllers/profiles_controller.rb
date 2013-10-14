@@ -5,11 +5,12 @@ class ProfilesController < ApplicationController
 
 	def update
   	@user = current_user
-    @user.image_url = params[:profile][:image_url]
+    @user.image = params[:profile][:image]
     @user.name = params[:profile][:name]
     @user.save!
+
     puts "***************"
-    puts @user.image_url.url
+    puts @user.image
     puts "***************"
     render "edit"
   end

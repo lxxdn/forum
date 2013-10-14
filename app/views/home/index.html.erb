@@ -1,15 +1,22 @@
 <div class="white-background">
-
-
-
 <ul class="nav nav-pills">
-	<% Catalog.all.each do |catalog|%>
-		<li><a href="#">
-			<%= catalog.name %>
-		</a></li>
+	<% Catalog.all.each_with_index do |catalog,index|%>
+		<% if params[:catalog].to_i == index %>
+			<li class="active"><a href="#"><%= catalog.name %></a></li>
+		<% else %>
+			<li><%= link_to catalog.name, controller: "home", action: "index", catalog: index %></li>
+		<% end %>
 	<% end %>
 </ul>
 
+<ul>
+	<% topics = Catalog.all[params[:catalog].to_i].topics %>
+	<% topics.each do |topic| %>
+		<li class="topic"><a href="go/<%= topic.name %>" class="topic_a"><%= topic.name %></a></li>
+	<% end %>
+</ul>
+
+<% @posts = filter_posts_with_current_catalog @all_posts %>
 
 <% if @posts.empty? %>
 	<p>Sorry,there is no posts</p>

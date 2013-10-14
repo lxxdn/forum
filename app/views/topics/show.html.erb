@@ -1,0 +1,10 @@
+<div class="white-background">
+<%= @current_topic.catalog.name %> > <%= @current_topic.name %> 
+
+
+<% if @posts.empty? %>
+	<p>Sorry,there is no posts</p>
+<% else %>
+	<%= render @posts %>
+<% end %>
+</div>
