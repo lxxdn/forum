@@ -12,11 +12,12 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign in", class: "btn btn-primary " %>
+    <%= f.button :submit, "Sign in", class: "btn btn-primary " %> 
+      <a href="<%= user_omniauth_authorize_path(:google_oauth2) %>"><%= image_tag "google.png", class: "google_logo" %></a>
   </div>
 <% end %>
 
-<%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
+
 
 <%= render "devise/shared/links" %>
 </div>
