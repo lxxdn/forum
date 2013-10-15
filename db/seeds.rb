@@ -27,3 +27,6 @@ idea.topics.create! name: 'Jobs'
 puts 'SETTING UP DEFAUT USER'
 User.create! :name => 'lxxdn', :email => 'julien.luxiao@gmail.com', :password => '12345678', :password_confirmation => '12345678'
 
+puts 'SETTNG UP TIPS'
+Tip.create! content: "Ruby is a dynamic language"
+Tip.create! content: "Matz said: Use Ruby 2.0"

@@ -9,7 +9,7 @@
 	<% end %>
 </ul>
 
-<ul>
+<ul class="topics">
 	<% topics = Catalog.all[params[:catalog].to_i].topics %>
 	<% topics.each do |topic| %>
 		<li class="topic"><a href="go/<%= topic.name %>" class="topic_a"><%= topic.name %></a></li>
@@ -19,7 +19,7 @@
 <% @posts = filter_posts_with_current_catalog @all_posts %>
 
 <% if @posts.empty? %>
-	<p>Sorry,there is no posts</p>
+	<p class="no_post">Sorry,there is no posts</p>
 <% else %>
 	<%= render @posts %>
 <% end %>

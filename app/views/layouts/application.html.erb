@@ -18,17 +18,10 @@
 		<%= yield %>
 	</div>
 
-	<div class="btn-group">
-  <button type="button" class="btn btn-success" onClick="parent.location='<%= new_post_path(Post.new, topic: '0') %>'">New Post</button>
-  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-  </button>	
-  <ul class="dropdown-menu" role="menu">
-    <% Topic.each_with_index do |topic, index|%>
-    	<li><%= link_to topic.name, new_post_path(Post.new, topic: index), class: 'new_post' %></li>
-		<% end %>
-  </ul>
-</div>
+  <div class="col-3 col-sm-3 col_lg-3">
+	 <%= render "layouts/side_bar" %>
+  </div>
+
 
 </div>
 

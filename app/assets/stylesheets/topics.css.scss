@@ -1,3 +1,26 @@
 // Place all the styles related to the topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+li.topic{
+	display:inline;
+	color: white;
+	padding-right: 20px;
+}
+
+a.topic_a{
+	color: gray;
+}
+
+ul.topics{
+	padding-left: 4%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.navigator{
+	font-size: 12pt;
+	color: gray;
+	margin-left: 4%;
+	margin-bottom: 5%;
+}

@@ -5,7 +5,7 @@
 
 	<p class="little_gray">
 		<a href="<%= post_path(post) %>"><span class="badge pull-right"><%= post.comments.size %></span></a>
-		<%= link_to post.topic.name, "#" %>  <%= link_to post.author.name, "#" %> updated at <%= time_ago_in_words post.updated_at %> ago
+		<%= link_to post.topic.name, "go/"+post.topic.name %>  <%= link_to post.author.name, "#" %> updated at <%= time_ago_in_words post.updated_at %> ago
 	</p>
 </li>
 

@@ -2,7 +2,7 @@
 <%= image_tag @post.author.image, class: "icon_big" %>
 <p class="entire_post_title"><%= @post.title %></p>
 <p class="little_gray">
-	<%= link_to @post.topic.name, "#" %> <%= @post.author.name %> updated at <%= time_ago_in_words @post.updated_at %> ago 
+	<%= link_to @post.topic.name, root_path+"go/"+@post.topic.name %> <%= @post.author.name %> updated at <%= time_ago_in_words @post.updated_at %> ago 
 	<%= link_to "delete", post_path(@post), method: :delete%>
 	<%= link_to "edit", edit_post_path(@post) %>
 </p>

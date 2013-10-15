@@ -1,9 +1,11 @@
 <div class="white-background">
-<%= @current_topic.catalog.name %> > <%= @current_topic.name %> 
 
+	<div class="navigator">
+		<%=link_to @current_topic.catalog.name, root_url+"?catalog="+(get_catalog_index @current_topic.catalog).to_s %> > <%= @current_topic.name %> 
+	</div>	
 
 <% if @posts.empty? %>
-	<p>Sorry,there is no posts</p>
+	<p class="no_post">Sorry,there is no posts</p>
 <% else %>
 	<%= render @posts %>
 <% end %>
