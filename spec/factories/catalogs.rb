@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :catalog do
+  	name "FactoryGirlCatalog"
   end
 end

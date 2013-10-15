@@ -4,10 +4,11 @@
 	<span class="little_gray">
 		<%= link_to comment.author.name, "#" %> <%= time_ago_in_words comment.updated_at %> ago
 	</span>
+	<% if comment.author == current_user %>
 	<div class="edit_remove">
-		<%= link_to "edit", edit_comment_path(comment) %>
-		<%= link_to "delete", comment_path(comment), method: :delete%>
+		<a href="<%= comment_path(comment) %>" data-method="delete"><%= image_tag "delete.png",class: "delete_icon" %></a>
 	</div>
+	<% end %>
 	
 	<p class="comment_content"><%= comment.content %></p>
 </li>

@@ -3,8 +3,14 @@
 <p class="entire_post_title"><%= @post.title %></p>
 <p class="little_gray">
 	<%= link_to @post.topic.name, root_path+"go/"+@post.topic.name %> <%= @post.author.name %> updated at <%= time_ago_in_words @post.updated_at %> ago 
-	<%= link_to "delete", post_path(@post), method: :delete%>
-	<%= link_to "edit", edit_post_path(@post) %>
+	
+	<% if @post.author == current_user %>
+	
+	<a href="<%= edit_post_path(@post) %>"><%= image_tag "edit.png", class: "edit_icon" %></a>
+	<a href="<%= post_path(@post) %>" data-method="delete"><%= image_tag "delete.png", class: "delete_icon" %></a>
+
+	
+	<% end %>
 </p>
 
 <p class="post_content"><%= @post.content %></p>
