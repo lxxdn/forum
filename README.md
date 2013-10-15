@@ -35,6 +35,10 @@ This is a Rails4 project realizing a simple forum with MongoDB
 
 * [Twitter Bootstrap](https://twitter.github.com/bootstrap)
 
+## Deployment 
+
+It is deployed in Heroku with MongoHQ. [link](http://damp-mesa-6410.herokuapp.com/)
+
 ## License
 
 Released under the MIT license:
