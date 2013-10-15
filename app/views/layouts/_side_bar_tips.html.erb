@@ -1,4 +1,4 @@
 <div class="white-background">
 	<p class="tips_title bold">Do you know?</p>
-	<p class="tips_content"><%= Tip.all[0].content %></p>
+	<p class="tips_content"><%= Tip.all[rand(Tip.all.size)].content %></p>
 </div>

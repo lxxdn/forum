@@ -30,3 +30,5 @@ User.create! :name => 'lxxdn', :email => 'julien.luxiao@gmail.com', :password =>
 puts 'SETTNG UP TIPS'
 Tip.create! content: "Ruby is a dynamic language"
 Tip.create! content: "Matz said: Use Ruby 2.0"
+Tip.create! content: "The forum is developped by ROR"
+Tip.create! content: "Ruby 2.1 is comming soon"
