@@ -11,6 +11,8 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+MONGOHQ_URL: "mongodb://lxxdn:sg6ddwqe!@emma.mongohq.com:10053/forum"
+
 module Forum
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
