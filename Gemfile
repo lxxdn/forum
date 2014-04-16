@@ -35,6 +35,9 @@ gem "mongoid", github: 'mongoid/mongoid'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
+# Permission control
+gem 'cancan'
+
 # Bootstrap
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'

@@ -48,6 +48,7 @@ GEM
     bcrypt-ruby (3.1.2)
     bson (2.0.0.rc2)
     builder (3.1.4)
+    cancan (1.6.10)
     capistrano (2.9.0)
       highline
       net-scp (>= 1.0.0)
@@ -258,6 +259,7 @@ PLATFORMS
 
 DEPENDENCIES
   anjlab-bootstrap-rails!
+  cancan
   capistrano (= 2.9.0)
   capybara (~> 0.4.1)
   carrierwave
