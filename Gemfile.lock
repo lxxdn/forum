@@ -272,7 +272,6 @@ DEPENDENCIES
   carrierwave
   carrierwave-mongoid
   coderay
-  coffee-rails (~> 4.0.0)
   cucumber-rails
   database_cleaner
   debugger

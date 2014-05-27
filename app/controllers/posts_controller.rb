@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :require_login
+	# before_action :require_login
 
   def new
   	@post = Post.new
@@ -46,6 +46,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.update_attributes!(title: @title, content: @content, topic: @topic, content_html: markdown(@content))
     redirect_to post_path(@post)
+  end
+
+  def transform_markdown
+    respond_to do |format|
+      format.json do
+        response = {data: markdown(params[:raw_markdown])}
+        render json: response
+      end
+    end
   end
 
   private

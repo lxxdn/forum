@@ -9,7 +9,6 @@
 
 }
 
-
 p.index_post_title{
 		font-size: 22px;
 		margin-bottom: 3px;
@@ -29,7 +28,6 @@ p.post_content{
 li.one_piece_post_index{
 	border-bottom: solid 1px #CCCCCC;
 	margin-bottom: 5px;
-	
 }
 
 p.no_post{
@@ -38,7 +36,14 @@ p.no_post{
 	color: red;
 }
 
-#post_content{
-	height: 150px;
-	width: 60%;
+.content{
+  height: 200px;
+  width: 60%;
+}
+
+#content-markdown{
+  border:solid 1px #CCCCCC;
+  height: 300px;
+  width: 60%;
+  padding: 5px;
 }
