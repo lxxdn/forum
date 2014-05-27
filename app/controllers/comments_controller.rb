@@ -1,10 +1,9 @@
 class CommentsController < ApplicationController
   def create
   	@post = Post.find(params[:comment][:post])
-  	@content = params[:comment][:content]
+    @content = params[:comment][:content]
   	@comment_author = User.find(params[:comment][:author])
-
-  	@comment = @post.comments.build(content: @content, author: @comment_author)
+  	@comment = @post.comments.build(content: @content, author: @comment_author, content_html: markdown(@content))
   	@comment.save
 
   	redirect_to(post_path(@post))
@@ -18,7 +17,7 @@ class CommentsController < ApplicationController
   	@comment = Comment.find(params[:id])
   	@post = @comment.post
   	@content = params[:comment][:content]
-  	@comment.update_attributes!(content: @content)
+  	@comment.update_attributes!(content: @content, content_html:markdown(@content))
   	redirect_to post_path(@post)
   end
 

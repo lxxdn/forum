@@ -1,15 +1,15 @@
 <div class="comment_form">
 <%= simple_form_for(@post.comments.new) do |f| %>
-
 	<div class="form-inputs">
 		<%= f.input :post, as: :hidden, input_html: { value: @post._id } %>
 		<%= f.input :author, as: :hidden, input_html: {value: current_user._id} %>
+    <button type="button" class="btn btn-default btn-ms">撰写</button>
+    <button type="button" class="btn btn-default btn-ms">预览</button>
 	  <%= f.input :content, as: :text, placeholder: "Comment...",required: true,label: false, input_html: {id: 'comment_text_box'} %>
   </div>
 
   <div class="form-actions">
   	<%= f.button :submit, "Comment" , class: "btn btn-primary "%>
 	</div>
-
 <% end %>
 </div>

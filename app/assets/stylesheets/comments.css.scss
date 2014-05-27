@@ -2,9 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-li.one_piece_comment{
-	border-bottom: solid 1px #CCCCCC;
+$gray: #CCCCCC;
+
+.one-comment{
+	border-bottom: solid 1px $gray;
 	margin-bottom: 5px;
+  .infos{
+    padding-left: 55px;
+    .info{
+      line-height: 11px;
+    }
+  }
 }
 
 p.comment_content{

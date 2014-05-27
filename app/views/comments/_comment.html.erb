@@ -1,14 +1,18 @@
 
-<li class="one_piece_comment">
+<li class="one-comment">
+  <div class="picture">
 	<%= image_tag comment.author.image_url, class: "icon_small" %>
-	<span class="little_gray">
-		<%= link_to comment.author.name, "#" %> <%= time_ago_in_words comment.updated_at %> ago
-	</span>
-	<% if comment.author == current_user %>
-	<div class="edit_remove">
-		<a href="<%= comment_path(comment) %>" data-method="delete"><%= image_tag "delete.png",class: "delete_icon" %></a>
 	</div>
-	<% end %>
-	
-	<p class="comment_content"><%= comment.content %></p>
+  <div class="infos">
+  <div class="info little-gray">
+		<%= link_to comment.author.name, "#" %>
+    <%= time_ago_in_words comment.updated_at %> ago
+  	<% if comment.author == current_user %>
+    	<div class="edit_remove">
+    		<a href="<%= comment_path(comment) %>" data-method="delete"><%= image_tag "delete.png",class: "delete_icon" %></a>
+    	</div>
+  	<% end %>
+    </div>
+	<p class="comment_content"><%= comment.content_html.html_safe %></p>
+  </div>
 </li>
