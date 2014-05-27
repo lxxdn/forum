@@ -1,15 +1,42 @@
 <div class="comment_form">
 <%= simple_form_for(@post.comments.new) do |f| %>
-
 	<div class="form-inputs">
 		<%= f.input :post, as: :hidden, input_html: { value: @post._id } %>
 		<%= f.input :author, as: :hidden, input_html: {value: current_user._id} %>
-	  <%= f.input :content, as: :text, placeholder: "Comment...",required: true,label: false, input_html: {id: 'comment_text_box'} %>
+    <button type="button" class="btn btn-default btn-ms btn-write">撰写</button>
+    <button type="button" class="btn btn-default btn-ms btn-preview">预览</button>
+	  <%= f.input :content, as: :text, input_html:{id: "raw-content", class: "comment-content"}, placeholder: "Comment...",required: true,label: false %>
+    <div id="comment-markdown" class></div>
   </div>
 
   <div class="form-actions">
   	<%= f.button :submit, "Comment" , class: "btn btn-primary "%>
 	</div>
-
 <% end %>
 </div>
+
+<script type="text/javascript">
+(function($) {
+  $("#comment-markdown").hide();
+  $(".btn-write").click(function(){
+    $("#raw-content").show();
+    $("#comment-markdown").hide();
+  });
+  $(".btn-preview").click(function(){
+    $("#raw-content").hide();
+    $("#comment-markdown").empty();
+    $("#comment-markdown").append("loading...");
+    $("#comment-markdown").show();
+    $.ajax({
+      url: "/posts/transform_markdown.json",
+      dataType: "json",
+      data: {raw_markdown: $("#raw-content").val()},
+      type: 'PUT',
+    })
+    .done(function( data ) {
+      $("#comment-markdown").empty();
+      $("#comment-markdown").append(data['data']);
+    });
+  });
+})(jQuery);
+</script>

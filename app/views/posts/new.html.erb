@@ -2,25 +2,50 @@
 	<p class="form-title bold"><%= @action %> post</p>
 	<div class="offset2">
 	<%= simple_form_for @post do |f| %>
-		<div class="bold">Topic:</div> 
-		
+		<div class="bold">Topic:</div>
+
 		<% parameters = get_url_params(request.original_url) %>
 
 		<%= f.select :topic_id, options_for_select(generate_nested_topics(Topic),parameters["topic"]||@topic_id),{}, {class: "form-control input-box"}%>
 
-		<div class="bold">Title:</div> 
+		<div class="bold">Title:</div>
 
  		<%= f.input :title, input_html:{class: "input-box form-control"}, label: false, placeholder: 'Title' %>
-	  
-	  <div class="bold">Content:</div> 
-	  <%= f.input :content,as: :text, input_html:{id: "post_content"}, label: false, placeholder: 'Content...' %>
+
+	  <div class="bold">Content:</div>
+    <button type="button" class="btn btn-default btn-ms btn-write">撰写</button>
+    <button type="button" class="btn btn-default btn-ms btn-preview">预览</button>
+	  <%= f.input :content,as: :text, input_html:{id: "post_content", class: "content"}, label: false, placeholder: 'Content...'%>
+    <div id="content-markdown"></div>
 	  <div class="form-actions">
     	<%= f.button :submit, "Submit" , class: "btn btn-primary "%>
   	</div>
 	<% end %>
+  </div>
+</div>
 
-	
-	  
-	
-</div>
-</div>
+<script type="text/javascript">
+(function($) {
+  $("#content-markdown").hide();
+  $(".btn-write").click(function(){
+    $("#post_content").show();
+    $("#content-markdown").hide();
+  });
+  $(".btn-preview").click(function(){
+    $("#post_content").hide();
+    $("#content-markdown").empty();
+    $("#content-markdown").append("loading...");
+    $("#content-markdown").show();
+    $.ajax({
+      url: "/posts/transform_markdown.json",
+      dataType: "json",
+      data: {raw_markdown: $("#post_content").val()},
+      type: 'PUT',
+    })
+    .done(function( data ) {
+      $("#content-markdown").empty();
+      $("#content-markdown").append(data['data']);
+    });
+  });
+})(jQuery);
+</script>

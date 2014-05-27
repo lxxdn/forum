@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :require_login
+	# before_action :require_login
 
   def new
   	@post = Post.new
@@ -8,9 +8,9 @@ class PostsController < ApplicationController
 
   def create
   	@title = params[:post][:title]
-  	@content = params[:post][:content]
+    @content = params[:post][:content]
     @topic = Topic.all[params[:post][:topic_id].to_i]
-  	@post = current_user.posts.build(title: @title, content: @content, topic: @topic)
+  	@post = current_user.posts.build(title: @title, content: @content, topic: @topic, content_html: markdown(@content))
   	@post.save
   	redirect_to post_path(@post)
   end
@@ -44,8 +44,17 @@ class PostsController < ApplicationController
     @content = params[:post][:content]
     @topic = Topic.all[params[:post][:topic_id].to_i]
     @post = Post.find(params[:id])
-    @post.update_attributes!(title: @title, content: @content, topic: @topic)
+    @post.update_attributes!(title: @title, content: @content, topic: @topic, content_html: markdown(@content))
     redirect_to post_path(@post)
+  end
+
+  def transform_markdown
+    respond_to do |format|
+      format.json do
+        response = {data: markdown(params[:raw_markdown])}
+        render json: response
+      end
+    end
   end
 
   private

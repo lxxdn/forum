@@ -1,7 +1,7 @@
 <div class="white-background">
 <%= image_tag @post.author.image, class: "icon_big" %>
 <p class="entire_post_title"><%= @post.title %></p>
-<p class="little_gray">
+<p class="little-gray">
 	<%= link_to @post.topic.name, root_path+"go/"+@post.topic.name %> <%= @post.author.name %> updated at <%= time_ago_in_words @post.updated_at %> ago 
 	
 	<% if @post.author == current_user %>
@@ -13,7 +13,7 @@
 	<% end %>
 </p>
 
-<p class="post_content"><%= @post.content %></p>
+<p class="post_content"><%= @post.content_html.html_safe %></p>
 
 	<div class="comments_list">
 		<% if @comments.empty? %>
