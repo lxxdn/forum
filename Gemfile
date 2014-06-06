@@ -55,15 +55,20 @@ end
 group :development, :test do
 	gem 'rspec-rails', '~> 2.13.2'
 	gem 'factory_girl_rails'
-	gem 'capistrano', '2.9.0', require: false
 	gem 'database_cleaner'
 	gem "capybara", "~> 0.4.1"
 	gem "mongoid-rspec"
 	gem 'cucumber-rails', :require => false
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
 end
 
 group :production do
   gem 'unicorn'
+  gem 'unicorn-worker-killer'
 end
 
 # Use ActiveModel has_secure_password
