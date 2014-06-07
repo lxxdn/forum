@@ -66,10 +66,8 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
-group :production do
-  gem 'unicorn'
-  gem 'unicorn-worker-killer'
-end
+gem 'unicorn'
+gem 'unicorn-worker-killer'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,6 +1,6 @@
 worker_processes 4
 
-app_root = File.expand_path("../..", __FILE__)
+app_root = "/home/lxdn/tassadar/current"
 working_directory app_root
 
 # listen on both a Unix domain socket and a TCP port,
