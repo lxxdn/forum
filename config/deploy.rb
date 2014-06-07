@@ -11,10 +11,10 @@ set :repo_url, 'git@github.com:lxxdn/forum.git'
 set :deploy_to, '/home/lxdn/tassadar'
 
 # Default value for :scm is :git
-# set :scm, :git
+set :scm, :git
 
 # Default value for :format is :pretty
-# set :format, :pretty
+set :format, :pretty
 
 # Default value for :log_level is :debug
 # set :log_level, :debug
