@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby "2.1.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -37,8 +36,8 @@ gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 # Bootstrap
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails'
+gem 'bootstrap-sass', '~> 3.1.1'
+
 # OAuth
 gem "omniauth"
 gem 'omniauth-google-oauth2'

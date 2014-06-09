@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 54b165183fdccc4feb451416d1a46ecae496d6be
-  specs:
-    anjlab-bootstrap-rails (3.0.3.0)
-      railties (>= 3.0)
-      sass (>= 3.2)
-
-GIT
   remote: git://github.com/mongoid/mongoid.git
   revision: f9e6fdb1a67ce7a9e5e831c560aa203886ec0d1d
   specs:
@@ -47,6 +39,8 @@ GEM
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
     bson (2.2.4)
     builder (3.1.4)
     capistrano (3.2.1)
@@ -288,7 +282,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  anjlab-bootstrap-rails!
+  bootstrap-sass (~> 3.1.1)
   capistrano
   capistrano-bundler
   capistrano-rails
