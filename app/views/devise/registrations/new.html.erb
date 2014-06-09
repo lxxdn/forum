@@ -6,13 +6,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  	<div class="bold">Name:</div> 
+  	<div class="bold">姓名:</div>
     <%= f.input :name, :required => true, input_html:{class: "input-box"}, label: false, :autofocus => true %>
-    <div class="bold">Email:</div> 
+    <div class="bold">Email:</div>
     <%= f.input :email, :required => true,input_html:{class: "input-box"}, :autofocus => true, label: false  %>
-    <div class="bold">Password:</div> 
+    <div class="bold">密码:</div>
     <%= f.input :password, :required => true,input_html:{class: "input-box"}, label: false %>
-    <div class="bold">Password confirmation:</div> 
+    <div class="bold">确认密码:</div>
     <%= f.input :password_confirmation,input_html:{class: "input-box"}, :required => true, label: false %>
   </div>
 

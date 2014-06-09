@@ -222,10 +222,11 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   require "omniauth-google-oauth2"
 
+  if Rails.env.production?
     config.omniauth :google_oauth2, ENV["CLIENT_ID"], ENV["CLIENT_SECRET"],{ access_type: "offline", approval_prompt: "" }
-  # else
-  #   config.omniauth :google_oauth2, "256887873078.apps.googleusercontent.com", "Ra4vEWcp8Cw-xOpaL5sTcByJ", { access_type: "offline", approval_prompt: "" }
-  # end
+  else
+    config.omniauth :google_oauth2, "256887873078.apps.googleusercontent.com", "Ra4vEWcp8Cw-xOpaL5sTcByJ", { access_type: "offline", approval_prompt: "" }
+  end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

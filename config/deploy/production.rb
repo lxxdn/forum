@@ -15,7 +15,7 @@
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '162.243.219.189', user: 'lxdn', roles: %w{web app db}
+server 'forum.lxdn.info', user: 'lxdn', roles: %w{web app db}
 
 
 # Custom SSH Options

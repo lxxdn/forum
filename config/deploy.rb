@@ -41,6 +41,12 @@ set :rvm_ruby_version, '2.1.1'      # Defaults to: 'default'
 namespace :deploy do
 
   desc 'Restart application'
+  task :start do
+    on roles(:app), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      invoke 'unicorn:start'
+    end
+  end
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:

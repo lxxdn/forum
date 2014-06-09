@@ -19,7 +19,7 @@
 <% @posts = filter_posts_with_current_catalog @all_posts %>
 
 <% if @posts.empty? %>
-	<p class="no_post">Sorry,there is no posts</p>
+	<p class="no_post">还没有帖子发表，请您发表第一篇</p>
 <% else %>
 	<%= render @posts %>
 <% end %>
