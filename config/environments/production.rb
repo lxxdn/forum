@@ -86,6 +86,6 @@ Forum::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  ENV["CLIENT_ID"] = "256887873078.apps.googleusercontent.com"
-  ENV["CLIENT_SECRET"] = "Ra4vEWcp8Cw-xOpaL5sTcByJ"
+  ENV["CLIENT_ID"] = "256887873078-suth8khpo0pt5pvh417t9g6bt7qej39g.apps.googleusercontent.com"
+  ENV["CLIENT_SECRET"] = "MtifP4nfST8nY10v-tNHm9Qj"
 end
