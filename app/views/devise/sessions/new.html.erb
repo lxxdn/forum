@@ -1,18 +1,18 @@
 <div class="white-background">
-<p class="form-title bold">Sign in</p>
+<p class="form-title bold">登陆</p>
 
 <div class="offset2">
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div class="form-inputs">
-  	<div class="bold">Email:</div> 
+  	<div class="bold">Email:</div>
     <%= f.input :email, :required => false,  input_html:{class: "input-box"}, label: false,:autofocus => true %>
-    <div class="bold">Password:</div> 
+    <div class="bold">密码:</div>
     <%= f.input :password, input_html:{class: "input-box"}, label: false, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+    <%= f.input :remember_me, :label=> "记住我", :as => :boolean if devise_mapping.rememberable? %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign in", class: "btn btn-primary " %> 
+    <%= f.button :submit, "登陆", class: "btn btn-primary " %>
       <a href="<%= user_omniauth_authorize_path(:google_oauth2) %>"><%= image_tag "google.png", class: "google_logo" %></a>
   </div>
 <% end %>

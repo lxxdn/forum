@@ -1,23 +1,23 @@
 <div class="white-background">
-<h2>Profile</h2>
+<h2>个人信息</h2>
 
 <%= form_for :profile, method: :put, url: profile_path(current_user),:html => {:multipart => true} do |f| %>
 	<div class="label_tag">
-		Photo
-		<%= image_tag @user.image, class: "icon_edit left_margin_10px" %>
-	</div> 
-	
-	<%= f.file_field :image %><br/><br/><br/><br/>
+		照片
+		<%= image_tag @user.image, class: "icon_edit left_margin_10px", id: "user-image" %>
+	</div>
+
+  <div class="block">
+	<%= f.file_field :image %>
+  </div>
 
 	<div class="profile_element">
-		<div class="label_tag">
-		Name
-	</div>
+    名字
   	<%= f.text_field :name, class: 'left_margin_10px', value:  current_user.name  %>
   </div>
 
  	<div class="profile_element">
- 	 	<%= f.submit "Update profile",class: "btn btn-primary" %>
+ 	 	<%= f.submit "更新个人信息",class: "btn btn-primary" %>
   </div>
 <% end %>
 </div>

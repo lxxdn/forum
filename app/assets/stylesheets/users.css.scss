@@ -6,13 +6,12 @@
 }
 
 .label_tag{
-	float: left;
+	margin-bottom: 5px;
 	font-weight: 700;
-	
 }
 
 .profile_element{
-	margin-top: 5px;
+	margin-top:12px;
 	margin-bottom: 5px;
 }
 
@@ -21,3 +20,10 @@
 	height: 30px;
 	margin-left: 5px;
 }
+
+.block{
+  line-height: 0;
+  margin-bottom: 10px;
+}
+
+
