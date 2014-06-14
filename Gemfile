@@ -63,6 +63,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
+  gem 'byebug'
 end
 
 gem 'unicorn'

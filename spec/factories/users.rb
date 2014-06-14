@@ -1,10 +1,10 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :user do
+  factory :user, :aliases => [:author] do
   	name 'FactoryGirlUser'
-  	email 'facotry.girl@example.com'
-  	image ''
-  	
+    sequence (:email) {|n| "email#{n}@factory.com"}
+    password 'password'
+    password_confirmation {|u| u.password}
   end
 end

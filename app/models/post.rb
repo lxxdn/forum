@@ -12,5 +12,6 @@ class Post
 
   validates_presence_of :content
   validates_presence_of :author_id
+  validates_presence_of :topic_id
 
 end

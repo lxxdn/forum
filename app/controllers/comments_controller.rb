@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :require_login
   def create
   	@post = Post.find(params[:comment][:post])
     @content = params[:comment][:content]
@@ -8,10 +9,6 @@ class CommentsController < ApplicationController
 
   	redirect_to(post_path(@post))
   end
-
-  # def edit
-  # 	@comment = Comment.find(params[:id])
-  # end
 
   def update
   	@comment = Comment.find(params[:id])

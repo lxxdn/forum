@@ -3,15 +3,10 @@ require 'spec_helper'
 describe CommentsController do
 
   describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
 
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
+    it "should redirect to post show page" do
+
+      get 'create'
       response.should be_success
     end
   end

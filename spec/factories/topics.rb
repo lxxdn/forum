@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :topic do
-  	name  "FactoryGirlTopic"
-  	association :catalog,factory: :catalog
+    sequence (:name) {|n| "topic_#{n}" }
+  	catalog
   end
 end

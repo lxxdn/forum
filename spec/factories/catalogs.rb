@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :catalog do
-  	name "FactoryGirlCatalog"
+  	sequence (:name) {|n| "catalog#{n}"}
   end
 end

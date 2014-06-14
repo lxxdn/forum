@@ -2,32 +2,36 @@ require 'spec_helper'
 
 describe PostsController do
 
+  def login_user
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    sign_in FactoryGirl.create(:user)
+  end
+
+  before(:each) do
+    login_user
+    FactoryGirl.create(:post)
+  end
+
   describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
+    subject {get 'new'}
+    it "should render new template" do
+      expect(subject).to render_template(:new)
     end
   end
 
   describe "GET 'create'" do
+    let(:param) { FactoryGirl.create(:post).attributes.slice("title", "content", "topic_id") }
     it "returns http success" do
-      get 'create'
-      response.should be_success
+      get 'create', { post: param }
+      expect(response).to redirect_to(post_path(Post.last))
     end
   end
 
   describe "GET 'destroy'" do
     it "returns http success" do
-      get 'destroy'
-      response.should be_success
+      post_count = Post.count
+      get 'destroy', {:id => Post.first.id}
+      Post.count.should == (post_count -1)
     end
   end
-
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
-    end
-  end
-
 end
