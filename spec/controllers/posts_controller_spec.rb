@@ -2,11 +2,6 @@ require 'spec_helper'
 
 describe PostsController do
 
-  def login_user
-    @request.env["devise.mapping"] = Devise.mappings[:user]
-    sign_in FactoryGirl.create(:user)
-  end
-
   before(:each) do
     login_user
     FactoryGirl.create(:post)

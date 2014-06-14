@@ -14,6 +14,11 @@ module Utils
   end
 end
 
+def login_user
+  @request.env["devise.mapping"] = Devise.mappings[:user]
+  sign_in FactoryGirl.create(:user)
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
