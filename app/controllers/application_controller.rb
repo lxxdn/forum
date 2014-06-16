@@ -19,8 +19,19 @@ class ApplicationController < ActionController::Base
         :strikethrough =>true
       }
     markdown = Redcarpet::Markdown.new(HTMLwithCodeRay,options)
-    markdown.render((text))
+
+    # the treatement of reply
+    prefix = ''
+    if /^@(.*)/.match(text).present?
+      reply_to_name = /^@(.*)/.match(text)[1].strip
+      reply_to_user = User.where(name: reply_to_name)[0]
+      prefix = (view_context.link_to "@#{reply_to_name}", profile_path(reply_to_user)).to_param
+      prefix += " "
+      text = text.lines.to_a[1..-1].join
+    end
+    prefix + markdown.render(text)
   end
+
 
   class HTMLwithCodeRay < Redcarpet::Render::HTML
     def block_code(code, language)

@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :require_login
   def create
   	@post = Post.find(params[:comment][:post])
-    @content = params[:comment][:content]
+    @content = params[:comment][:content].strip
   	@comment_author = User.find(params[:comment][:author])
   	@comment = @post.comments.build(content: @content, author: @comment_author, content_html: markdown(@content))
   	@comment.save

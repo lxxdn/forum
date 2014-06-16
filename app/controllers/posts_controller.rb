@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   def create
   	@title = params[:post][:title]
     @content = params[:post][:content]
-    @topic = Topic.find(params[:post][:topic_id])
+    @topic = Topic.all[params[:post][:topic_id].to_i]
   	@post = current_user.posts.build(title: @title, content: @content, topic: @topic, content_html: markdown(@content))
   	@post.save
   	redirect_to post_path(@post)

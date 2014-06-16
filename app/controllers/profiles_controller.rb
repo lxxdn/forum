@@ -1,18 +1,22 @@
 class ProfilesController < ApplicationController
+  before_action :set_user
+
+  def show
+  end
+
 	def edit
-		@user = User.find(params[:id])
 	end
 
 	def update
-  	@user = current_user
-    @user.image = params[:profile][:image]
-    @user.name = params[:profile][:name]
-    @user.save!
+    current_user.image = params[:profile][:image]
+    current_user.name = params[:profile][:name]
+    current_user.save!
 
-    puts "***************"
-    puts @user.image
-    puts "***************"
     render "edit"
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

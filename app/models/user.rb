@@ -18,6 +18,8 @@ class User
   ##use name
   field :name, :type => String
 
+  validates_uniqueness_of :name
+
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
 
@@ -38,7 +40,7 @@ class User
   field :last_sign_in_ip,    :type => String
 
   has_many :posts, :dependent => :destroy
-  has_many :comments, :dependent => :destroy 
+  has_many :comments, :dependent => :destroy, inverse_of: :authors
 
   ACCESSABLE_ATTRS=[:name, :email, :password, :password_confirmation, :provider, :uid]
 

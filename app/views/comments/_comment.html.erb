@@ -7,12 +7,13 @@
   <div class="info little-gray">
 		<%= link_to comment.author.name, "#" %>
     <%= time_ago_in_words comment.updated_at %> ago
-  	<% if comment.author == current_user %>
     	<div class="edit_remove">
-    		<a href="<%= comment_path(comment) %>" data-method="delete"><%= image_tag "delete.png",class: "delete_icon" %></a>
+      <a href="" class= "reply"><%= image_tag "reply.png", class: "status" %></a>
+      <% if comment.author == current_user %>
+    		<a href="<%= comment_path(comment) %>" data-method="delete"><%= image_tag "delete.png",class: "status" %></a>
+      <% end %>
     	</div>
-  	<% end %>
     </div>
-	<p class="comment_content"><%= comment.content_html.html_safe %></p>
+	<div class="comment_content"><%= comment.content_html.html_safe %></div>
   </div>
 </li>

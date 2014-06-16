@@ -2,14 +2,14 @@
 <%= image_tag @post.author.image, class: "icon_big" %>
 <p class="entire_post_title"><%= @post.title %></p>
 <p class="little-gray">
-	<%= link_to @post.topic.name, root_path+"go/"+@post.topic.name %> <%= @post.author.name %> updated at <%= time_ago_in_words @post.updated_at %> ago 
-	
-	<% if @post.author == current_user %>
-	
-	<a href="<%= edit_post_path(@post) %>"><%= image_tag "edit.png", class: "edit_icon" %></a>
-	<a href="<%= post_path(@post) %>" data-method="delete"><%= image_tag "delete.png", class: "delete_icon" %></a>
+	<%= link_to @post.topic.name, root_path+"go/"+@post.topic.name %> <%= @post.author.name %> updated at <%= time_ago_in_words @post.updated_at %> ago
 
-	
+	<% if @post.author == current_user %>
+
+	<a href="<%= edit_post_path(@post) %>"><%= image_tag "edit.png", class: "edit_icon" %></a>
+	<a href="<%= post_path(@post) %>" data-method="delete"><%= image_tag "delete.png", class: "status" %></a>
+
+
 	<% end %>
 </p>
 
