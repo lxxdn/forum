@@ -5,7 +5,7 @@
 	</div>
   <div class="infos">
   <div class="info little-gray">
-		<%= link_to comment.author.name, "#" %>
+		<%= link_to comment.author.name, profile_path(comment.author) %>
     <%= time_ago_in_words comment.updated_at %> ago
     	<div class="edit_remove">
       <a href="" class= "reply"><%= image_tag "reply.png", class: "status" %></a>

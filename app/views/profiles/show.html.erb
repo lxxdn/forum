@@ -1,0 +1,12 @@
+<div class="white-background">
+  <h2>个人信息</h2>
+
+  <div class="profile_element">
+  <b>名字:</b> <%= @user.name %>
+  </div>
+
+  <div class="profile_element">
+    <b>照片:</b>
+    <%= image_tag @user.image, class: "icon_edit left_margin_10px", id: "user-image" %>
+  </div>
+</div>
