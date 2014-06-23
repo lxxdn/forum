@@ -18,13 +18,13 @@ deploy:migrate
 deploy:normalize_assets
 deploy:published
 deploy:publishing
-deploy:restart
 deploy:revert_release
 deploy:reverted
 deploy:reverting
 deploy:rollback
 deploy:rollback_assets
 deploy:set_current_revision
+deploy:start
 deploy:started
 deploy:starting
 deploy:symlink:linked_dirs
@@ -35,3 +35,9 @@ deploy:updated
 deploy:updating
 install
 rvm:check
+unicorn:add_worker
+unicorn:reload
+unicorn:remove_worker
+unicorn:restart
+unicorn:start
+unicorn:stop
