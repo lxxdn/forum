@@ -8,11 +8,10 @@
 		<%= link_to comment.author.name, profile_path(comment.author) %>
     <%= time_ago_in_words comment.updated_at %> ago
     	<div class="edit_remove">
-      <% if current_user != comment.author %>
-        <a href="" class= "reply"><%= image_tag "reply.png", class: "status" %></a>
-      <% end %>
       <% if comment.author == current_user %>
     		<a href="<%= comment_path(comment) %>" data-method="delete"><%= image_tag "delete.png",class: "status" %></a>
+      <% else %>
+        <a href="" class= "reply"><%= image_tag "reply.png", class: "status" %></a>
       <% end %>
     	</div>
     </div>
