@@ -1,4 +1,4 @@
-(function($) {
+$(document).ready(function(){
   $('.btn-write').addClass("active");
 
   $('.btn-write').click(function(){
@@ -9,7 +9,7 @@
   $('.btn-preview').click(function(){
       $(this).addClass("active");
       $('.btn-write').removeClass("active");
-    });
+  });
 
   $("#content-markdown").hide();
   $(".btn-write").click(function(){
@@ -32,4 +32,6 @@
       $("#content-markdown").append(data['data']);
     });
   });
-})(jQuery);
+
+});
+

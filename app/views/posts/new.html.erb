@@ -1,26 +1,7 @@
 <div class="white-background">
-	<p class="form-title bold"><%= @action %> post</p>
+	<p class="form-title bold">发布新帖</p>
 	<div class="offset2">
-	<%= simple_form_for @post do |f| %>
-		<div class="bold">Topic:</div>
-
-		<% parameters = get_url_params(request.original_url) %>
-
-		<%= f.select :topic_id, options_for_select(generate_nested_topics(Topic),parameters["topic"]||@topic_id),{}, {class: "form-control input-box"}%>
-
-		<div class="bold">Title:</div>
-
- 		<%= f.input :title, input_html:{class: "input-box form-control"}, label: false, placeholder: 'Title' %>
-
-	  <div class="bold">Content:</div>
-    <button type="button" class="btn btn-default btn-ms btn-write">撰写</button>
-    <button type="button" class="btn btn-default btn-ms btn-preview">预览</button>
-	  <%= f.input :content,as: :text, input_html:{id: "post_content", class: "content"}, label: false, placeholder: 'Content...'%>
-    <div id="content-markdown"></div>
-	  <div class="form-actions">
-    	<%= f.button :submit, "Submit" , class: "btn btn-primary "%>
-  	</div>
-	<% end %>
+    <%= render "form" %>
   </div>
 </div>
 

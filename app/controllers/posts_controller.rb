@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def new
   	@post = Post.new
-    @action = "New"
   end
 
   def create
@@ -35,8 +34,6 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @topic_id = Topic.all.find_index(@post.topic)
-    @action = "Edit"
-    render 'new'
   end
 
   def update
