@@ -19,6 +19,7 @@
 		<% if @comments.empty? %>
 			<p class="no_comment">没有评论</p>
 		<% else%>
+        <p class="comments-status">共有<%= @comments.size %>条评论</p>
 				<%= render @comments %>
 		<% end %>
 	</div>
