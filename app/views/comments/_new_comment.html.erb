@@ -5,7 +5,7 @@
 		<%= f.input :author, as: :hidden, input_html: {value: current_user._id} %>
     <button type="button" class="btn btn-default btn-ms btn-write">撰写</button>
     <button type="button" class="btn btn-default btn-ms btn-preview">预览</button>
-	  <%= f.input :content, as: :text, input_html:{id: "raw-content", class: "comment-content"}, placeholder: "Comment...",required: true,label: false %>
+	  <%= f.input :content, as: :text, input_html:{id: "raw-content", class: "comment-editor"}, placeholder: "Comment...",required: true,label: false %>
     <div id="comment-markdown" class></div>
   </div>
 
@@ -16,7 +16,17 @@
 </div>
 
 <script type="text/javascript">
-(function($) {
+
+  $('.btn-write').addClass('active');
+  $('.btn-write').click(function(){
+    $(this).addClass('active');
+    $('.btn-preview').removeClass('active');
+  });
+
+  $('.btn-preview').click(function(){
+      $(this).addClass('active');
+      $('.btn-write').removeClass('active');
+  });
   $("#comment-markdown").hide();
   $(".btn-write").click(function(){
     $("#raw-content").show();
@@ -31,12 +41,11 @@
       url: "/posts/transform_markdown.json",
       dataType: "json",
       data: {raw_markdown: $("#raw-content").val()},
-      type: 'PUT',
+      type: 'PUT'
     })
     .done(function( data ) {
       $("#comment-markdown").empty();
       $("#comment-markdown").append(data['data']);
     });
   });
-})(jQuery);
 </script>
